@@ -14,10 +14,10 @@ module Danger
         @undercover = @dangerfile.undercover
       end
 
-      it 'shows warnings if file is not found' do
+      it 'fails if file is not found' do
         @undercover.report('spec/fixtures/missing_file.txt')
 
-        expect(@dangerfile.status_report[:warnings]).to eq(['Undercover: coverage report cannot be found.'])
+        expect(@dangerfile.status_report[: errors]).to eq(['Undercover: coverage report cannot be found.'])
       end
 
       it 'shows success message if nothing to report' do
