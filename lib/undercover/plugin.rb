@@ -24,7 +24,7 @@ module Danger
     # If there are reports then it shows the report as a warning in danger.
     # @return  [void]
     #
-    def report(undercover_path = DEFAULT_PATH, sticky: true, in_line: false, fail_0_coverage: false)
+    def report(undercover_path = DEFAULT_PATH, sticky: true, in_line: false, fail_on_missing_coverage: false)
       return fail('Undercover: coverage report cannot be found.') unless valid_file? undercover_path
 
       report = File.open(undercover_path).read.force_encoding('UTF-8')
@@ -39,7 +39,7 @@ module Danger
           warn("Coverage reported 0 hits #{line}", file: filename, line: from_line.to_i, sticky: sticky)
         end
 
-        fail(report, sticky: sticky) if fail_0_coverage
+        fail(report, sticky: sticky) if fail_on_missing_coverage
       else
         message(report, sticky: sticky)
       end

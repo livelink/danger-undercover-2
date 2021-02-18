@@ -45,10 +45,10 @@ module Danger
           expect(@dangerfile.status_report[:warnings].count).to eq(3)
         end
 
-        context "when fail_0_coverage option is true" do
+        context "when fail_on_missing_coverage option is true" do
           it 'reports 0 coverage as a failure' do
             report_path = 'spec/fixtures/undercover_failed.txt'
-            @undercover.report(report_path, in_line: true, fail_0_coverage: true)
+            @undercover.report(report_path, in_line: true, fail_on_missing_coverage: true)
 
             report = File.open(report_path).read
 
