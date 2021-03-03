@@ -36,7 +36,7 @@ module Danger
         expect(@dangerfile.status_report[:warnings]).to eq([report])
       end
 
-      context 'when report size exceed 60k' do
+      context 'when report size exceeds 60k' do
         it 'reports a warning with a trimmered message' do
           report_path = 'spec/fixtures/undercover_failed_big.txt'
           @undercover.report(report_path)

@@ -45,10 +45,9 @@ module Danger
 
       report = File.open(undercover_path).read.force_encoding('UTF-8')
 
-      # Returns and add a message if is all good.
+      # Returns and adds a message if all is good.
       return message(cut_report(report), sticky: sticky) unless report.match(/some methods have no test coverage/)
 
-      # Returns the content of the report unless `in_line` option is true
       return report_with_type(report_danger, cut_report(report), sticky) unless in_line
 
       reported_inline_comments = 0
