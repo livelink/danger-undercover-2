@@ -36,7 +36,7 @@ module Danger
     #   - *max_inline_comments* determine the maximum number of reported messages.
     #     Used to avoid Github API abuse mechanism.
     #     When limit is reached, a custom message is added to inform the user.
-    #     Defaults to 10.
+    #     Defaults to MAX_INLINE_COMMENTS.
     #
     # @return  [void]
     #
